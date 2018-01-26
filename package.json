@@ -1,27 +1,34 @@
 {
-  "name": "swagger-hapi",
-  "version": "0.7.0",
-  "description": "Swagger loader and middleware for Hapi",
+  "name": "defra-swagger-hapi",
+  "version": "0.0.1",
+  "description": "A fork of swagger-hapi <https://github.com/apigee-127/swagger-hapi> compatible with hapi.js 17",
   "keywords": [
     "swagger",
     "api",
     "apis",
     "hapi"
   ],
-  "author": "Scott Ganyo <sganyo@apigee.com>",
-  "license": "MIT",
+  "engines": {
+    "node": ">=8.x"
+  },
+  "author": "Department for Environment, Food and Rural Affairs <https://www.gov.uk/government/organisations/department-for-environment-food-rural-affairs>",
+  "license": "SEE LICENSE IN LICENSE",
   "main": "lib/index.js",
+  "bugs": {
+    "url": "https://github.com/DEFRA/swagger-hapi/issues"
+  },
+  "homepage": "https://github.com/DEFRA/swagger-hapi#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/apigee-127/swagger-hapi.git"
+    "url": "https://github.com/DEFRA/swagger-hapi"
   },
   "dependencies": {
-    "swagger-node-runner": "^0.7.0"
+    "defra-swagger-node-runner": "^0.0.1"
   },
   "devDependencies": {
-    "lodash": "^3.9.3",
-    "mocha": "^2.2.1",
-    "should": "^5.2.0"
+    "lodash": "^4.17.4",
+    "mocha": "^5.0.0",
+    "should": "^13.2.1"
   },
   "scripts": {
     "test": "mocha -u exports -R spec test test/lib",
