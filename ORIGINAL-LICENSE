@@ -1,7 +1,7 @@
 /****************************************************************************
  The MIT License (MIT)
 
- Copyright (c) 2015 Apigee Corporation
+ Copyright (c) 2014 Apigee Corporation
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -21,14 +21,3 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-'use strict';
-
-var Runner = require('defra-swagger-node-runner');
-
-module.exports.create = function(config, cb) {
-
-  Runner.create(config, function(err, runner) {
-    if (err) { return cb(err); }
-    cb(undefined, runner.hapiMiddleware());
-  });
-};

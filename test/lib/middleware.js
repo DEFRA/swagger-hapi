@@ -61,10 +61,9 @@ describe('hapi_middleware', function() {
     });
 
     it('should expose plugin', function() {
-
       should.exist(hapiMiddleware.plugin.register);
       hapiMiddleware.plugin.register.should.be.a.Function;
-      hapiMiddleware.plugin.register.attributes.should.have.keys('name', 'version');
+      hapiMiddleware.plugin.should.have.keys('name', 'version');
     });
   });
 
@@ -100,17 +99,22 @@ describe('hapi_middleware', function() {
           should(funct).be.a.Function;
         },
 
-        on: function(event, funct) {
-          extCalled.should.be.true;
-          'request-error'.should.eql(event);
-          should(funct).be.a.Function;
-          done();
+        events: {
+          on: function(event, funct) {
+            extCalled.should.be.true;
+            'request'.should.eql(event);
+            should(funct).be.a.Function;
+            done();
+          }
         }
       };
 
-      hapiMiddleware.plugin.register(server, null, function() {
+      hapiMiddleware.plugin.register(server).then(function() {
         should.fail; // should never get here
-      });
+      }.catch (function (err) {
+        should.fail; // should never get here
+      }));
+
     });
 
   })
